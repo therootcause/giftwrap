@@ -1,0 +1,8 @@
+settings:
+  package_name_format: 'tesora-dbaas-{{project.name}}'
+  version: '1.0-icehouse'
+  base_path: '/opt/tesora/dbaas/openstack-{{version}}/'
+
+projects:
+  - name: horizon
+    gitref: stable/icehouse
