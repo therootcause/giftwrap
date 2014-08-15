@@ -10,8 +10,7 @@ Vagrant.configure('2') do |config|
     vm.vmx["vhv.enable"] = "true"
   end
 
-  config.vm.define 'giftwrap-ubuntu-14.04' do |c|
-    #c.vm.host_name = 'giftwrap-ubuntu-14.04'
+  config.vm.define 'ubuntu-14.04' do |c|
     c.vm.box = 'tesora/ubuntu-14.04-amd64'
   
     # install giftwrap from current working directory into the VM
@@ -20,14 +19,12 @@ Vagrant.configure('2') do |config|
       apt-get install -y python-pip python-dev git
       apt-get install -y build-essential ruby1.9.1-dev
       gem install --no-ri --no-rdoc fpm
-      #git clone https://github.com/cloudcadre/giftwrap.git
       cd /vagrant
       python setup.py install
     EOF
   end
 
-  config.vm.define 'giftwrap-centos-6.5' do |c|
-    #c.vm.host_name = 'giftwrap-centos-6.5'
+  config.vm.define 'centos-6.5' do |c|
     c.vm.box = 'tesora/centos-6.5-amd64'
 
     # install giftwrap from current working directory into the VM
@@ -37,7 +34,6 @@ Vagrant.configure('2') do |config|
       yum install -y ruby-devel rubygems gcc rpm-build
       gem install --no-ri --no-rdoc fpm
       yum install -y python-setuptools python-pip python-devel git 
-      #git clone https://github.com/cloudcadre/giftwrap.git
       cd /vagrant
       python setup.py install
     EOF
